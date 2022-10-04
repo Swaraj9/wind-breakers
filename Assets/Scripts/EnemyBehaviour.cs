@@ -7,10 +7,14 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     public int health = 100;
     public Transform healthBar;
-    private string type = "Fire";
+    //private string type = "Fire";
     public Rigidbody2D enemyRb;
     public float dashSpeed;
     public BoxCollider2D visionCollider;
+    public float speed = 10;
+
+    public int steps = 50;
+    public bool right = false;
 
     void Start()
     {
@@ -32,6 +36,8 @@ public class EnemyBehaviour : MonoBehaviour
         {
             healthBar.localScale = new Vector3(health * 0.01f, healthBar.localScale.y, healthBar.localScale.z);
         }
+
+        
     }
 
     public void TakeDamage(int damageAmount)
@@ -41,7 +47,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-            Dash();
+        
     }
     
     private void Dash()
